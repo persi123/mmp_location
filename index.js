@@ -7,8 +7,10 @@ const getUpdatedToken = async () => {
   //   const form = new FormData();
   const authObj = {
     grant_type: "client_credentials",
-    client_id: process.env.client_id,
-    client_secret: process.env.client_secret,
+    client_id:
+      "33OkryzDZsJaaJM_zyCcr0YM5EAjvAawRFZN1jx4LWRjk-eflbwyRB5oFli6pHDgXgAFq259VAN_AXhu2jU9RQ==",
+    client_secret:
+      "lrFxI-iSEg-EDQkMk9-AnBetcqKhoaxhjOQ5bsNkZTp667wH5BXVQeHEO360qodO0yB-imZlb4ObmnVfZ7nb4l_-z6pSMF9N",
   };
   const body = new URLSearchParams(authObj);
 
