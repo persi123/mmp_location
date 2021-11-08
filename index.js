@@ -1,5 +1,6 @@
 const express = require("express");
 const axios = require("axios");
+var cors = require("cors");
 
 const app = express();
 
@@ -30,6 +31,8 @@ const getUpdatedToken = async () => {
   );
   return response.data;
 };
+
+app.use(cors());
 
 app.get("/", async (req, res) => {
   const { access_token } = await getUpdatedToken();
