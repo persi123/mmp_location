@@ -39,7 +39,7 @@ app.get("/", async (req, res) => {
   // console.log(req.body, "reqqq");
 
   const { city = "delhi", region = "ind", location = "" } = req.query;
-  console.log(req.query, { access_token });
+  //   console.log(req.query, { access_token });
   try {
     const response = await axios.get(
       `https://atlas.mapmyindia.com/api/places/search/json?query=${city}&location=${location}&region=${region}`,
