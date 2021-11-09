@@ -38,7 +38,8 @@ app.get("/", async (req, res) => {
   const { access_token } = await getUpdatedToken();
   // console.log(req.body, "reqqq");
 
-  const { city = "delhi", region = "", location = "" } = req.query;
+  const { city = "delhi", region = "ind", location = "" } = req.query;
+  console.log(req.query, { access_token });
   try {
     const response = await axios.get(
       `https://atlas.mapmyindia.com/api/places/search/json?query=${city}&location=${location}&region=${region}`,
