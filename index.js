@@ -1,17 +1,19 @@
-const express = require("express");
-const axios = require("axios");
-var cors = require("cors");
+const express = require('express');
+const axios = require('axios');
+var cors = require('cors');
 
 const app = express();
 
 const getUpdatedToken = async () => {
   //   const form = new FormData();
   const authObj = {
-    grant_type: "client_credentials",
+    grant_type: 'client_credentials',
     client_id:
-      "33OkryzDZsJaaJM_zyCcr0YM5EAjvAawRFZN1jx4LWRjk-eflbwyRB5oFli6pHDgXgAFq259VAN_AXhu2jU9RQ==",
+      // "33OkryzDZsJaaJM_zyCcr0YM5EAjvAawRFZN1jx4LWRjk-eflbwyRB5oFli6pHDgXgAFq259VAN_AXhu2jU9RQ==",
+      '33OkryzDZsKQfAoRI-sDsHYKHPEMvT1nayPUO8uW8KWUnhSixp_ekNueE-YnbFMFTRAEN_fPBjJOO8lSWXNhKQ==',
     client_secret:
-      "lrFxI-iSEg-EDQkMk9-AnBetcqKhoaxhjOQ5bsNkZTp667wH5BXVQeHEO360qodO0yB-imZlb4ObmnVfZ7nb4l_-z6pSMF9N",
+      // "lrFxI-iSEg-EDQkMk9-AnBetcqKhoaxhjOQ5bsNkZTp667wH5BXVQeHEO360qodO0yB-imZlb4ObmnVfZ7nb4l_-z6pSMF9N",
+      'lrFxI-iSEg-dAU2lqjyHwfQ3vrj8dY23mAM7qGP85PRl27TjwO6oxcNfimlmGltAVcvwOjvsNo8hakpjYRcvhALCeVTpUkhg',
   };
   const body = new URLSearchParams(authObj);
 
@@ -34,11 +36,11 @@ const getUpdatedToken = async () => {
 
 app.use(cors());
 
-app.get("/", async (req, res) => {
+app.get('/', async (req, res) => {
   const { access_token } = await getUpdatedToken();
   // console.log(req.body, "reqqq");
 
-  const { city = "delhi", region = "ind", location = "" } = req.query;
+  const { city = 'delhi', region = 'ind', location = '' } = req.query;
   //   console.log(req.query, { access_token });
   try {
     const response = await axios.get(
@@ -53,9 +55,9 @@ app.get("/", async (req, res) => {
       data: response.data,
     });
   } catch (err) {
-    console.log("err", err);
+    console.log('err', err);
     return res.status(404).json({
-      err: "code tha ftt gya ",
+      err: 'code tha ftt gya ',
     });
   }
 });
